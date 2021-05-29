@@ -1,8 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
@@ -142,7 +143,8 @@ public class HomePageHeader {
         daySelectDropdown.click();
 
     }
-// select day
+
+    // select day
     public void selectDay() {
         Select drop = new Select(daySelectDropdown);
         drop.selectByIndex(5);
@@ -151,15 +153,28 @@ public class HomePageHeader {
     //Create Account
     @FindBy(xpath = "//button[@class='primary expanded submit']")
     WebElement createAccount;
-    public void clickCreateAccount(){
+
+    public void clickCreateAccount() {
         createAccount.click();
     }
 
-    @FindBy (xpath = "//*[@id='ca-page-level-error']/div/div/div[2]/div/p")
+    @FindBy(xpath = "//*[@id='ca-page-level-error']/div/div/div[2]/div/p")
     WebElement errorMSG;
 
-    public String disabledAutomatedSignUp(){
+    public String disabledAutomatedSignUp() {
         return errorMSG.getText();
+
+
     }
+
+    //move cursor
+    @FindBy(xpath="//*[@id=\"shopByDepartmentLabelText\"]")
+            WebElement cursor1;
+    public void mouse() {
+        Actions actions = new Actions((WebDriver) cursor1);
+        actions.moveToElement(cursor1).build().perform();
+
+
+    }
+
 }
-//

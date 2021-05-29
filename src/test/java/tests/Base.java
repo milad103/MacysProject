@@ -1,7 +1,10 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 
 import java.util.concurrent.TimeUnit;
@@ -19,6 +22,7 @@ public class Base {
 
     // Delete cookies
     void cookies() {
+
         driver.manage().deleteAllCookies();
     }
 
@@ -31,6 +35,10 @@ public class Base {
     void dismissAlert() {
         driver.switchTo().alert().dismiss();
     }
+
+    // mouse
+
+
 
 
     //Closing Browser

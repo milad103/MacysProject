@@ -1,6 +1,8 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -107,4 +109,16 @@ public class MacysHomePageHeaderTests extends Base {
         String actualText = homePageHeader.disabledAutomatedSignUp();
         Assert.assertTrue(actualText.contains("We're sorry, but we cannot display your information at this time."));
     }
+
+    //Test Case M7: test Shop By department drop then select "Home" from the menu
+
+@Test
+    void testScroll() {
+    cookies();
+   implicitWait(5 );
+    homePageHeader.mouse();
+
+
+}
+
 }
