@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public class HomePageHeader {
 
-
     @FindBy(xpath = "//*[@id=\"myRewardsLabel-status\"]/span[1]")
     WebElement SignInButton;
 
@@ -163,18 +162,9 @@ public class HomePageHeader {
 
     public String disabledAutomatedSignUp() {
         return errorMSG.getText();
-
-
     }
-
-    //move cursor
-    @FindBy(xpath="//*[@id=\"shopByDepartmentLabelText\"]")
-            WebElement cursor1;
-    public void mouse() {
-        Actions actions = new Actions((WebDriver) cursor1);
-        actions.moveToElement(cursor1).build().perform();
-
-
-    }
+    // mouse
+    //@FindBy(xpath = "//*[@id=\"m-bag-count-anchor\"]")
+    //WebElement jhj;
 
 }

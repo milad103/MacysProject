@@ -36,10 +36,6 @@ public class Base {
         driver.switchTo().alert().dismiss();
     }
 
-    // mouse
-
-
-
 
     //Closing Browser
     @AfterMethod
@@ -47,4 +43,6 @@ public class Base {
         Thread.sleep(15000);
         driver.quit();
     }
+
+
 }

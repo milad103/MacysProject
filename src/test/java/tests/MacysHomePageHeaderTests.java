@@ -2,6 +2,7 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -18,6 +19,7 @@ public class MacysHomePageHeaderTests extends Base {
 
     HomePageHeader homePageHeader;
     String URL = "https://macys.com";
+    Actions actions;
 
     @BeforeMethod
     void setupHomePage() {
@@ -113,11 +115,12 @@ public class MacysHomePageHeaderTests extends Base {
     //Test Case M7: test Shop By department drop then select "Home" from the menu
 
 @Test
-    void testScroll() {
-    cookies();
-   implicitWait(5 );
-    homePageHeader.mouse();
+void DropDown(){
 
+    actions = new Actions(driver);
+    WebElement joke = driver.findElement(By.xpath("//*[@id=\"flexid_118\"]/a"));
+    actions.moveToElement(joke).perform();
+    //joke.click();
 
 }
 
