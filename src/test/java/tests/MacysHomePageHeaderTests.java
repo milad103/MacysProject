@@ -1,5 +1,6 @@
 package tests;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -11,15 +12,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePageHeader;
 
-import java.util.concurrent.TimeUnit;
-
-import static java.lang.Thread.*;
 
 public class MacysHomePageHeaderTests extends Base {
 
     HomePageHeader homePageHeader;
     String URL = "https://macys.com";
-    Actions actions;
 
     @BeforeMethod
     void setupHomePage() {
@@ -31,7 +28,7 @@ public class MacysHomePageHeaderTests extends Base {
 
 
     //Test Case M1: Asserting that SignIn Button is clickable
-    void testSignIn() {
+    void testSignInButtonText() {
         implicitWait(5);
         cookies();
         homePageHeader.SignInButtonClicking();
@@ -112,16 +109,14 @@ public class MacysHomePageHeaderTests extends Base {
         Assert.assertTrue(actualText.contains("We're sorry, but we cannot display your information at this time."));
     }
 
-    //Test Case M7: test Shop By department drop then select "Home" from the menu
+    // Test Case M7: Search "Giorgi Armani Acqua Di Gio Absolu Eau de Parfum" then add to cart then choose pick up as an option
+    @Test
+    void addAcquaiDiGioToCart(){
+        homePageHeader.selectProductSearchBar();
+        homePageHeader.clickSearchButton();
+        homePageHeader.selectAcquaDiGioAbsolu();
 
-@Test
-void DropDown(){
+    }
 
-    actions = new Actions(driver);
-    WebElement joke = driver.findElement(By.xpath("//*[@id=\"flexid_118\"]/a"));
-    actions.moveToElement(joke).perform();
-    //joke.click();
 
-}
-
-}
+    }

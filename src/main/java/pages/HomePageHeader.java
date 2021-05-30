@@ -3,16 +3,16 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-public class HomePageHeader {
+public class HomePageHeader<oz> {
 
     @FindBy(xpath = "//*[@id=\"myRewardsLabel-status\"]/span[1]")
     WebElement SignInButton;
 
     public void SignInButtonClicking() {
+
         SignInButton.click();
     }
 
@@ -59,8 +59,8 @@ public class HomePageHeader {
     WebElement PrintHeaderElements;
 
     public String HeaderElements() {
-        String text = PrintHeaderElements.getText();
-        return text;
+        String text1 = PrintHeaderElements.getText();
+        return text1;
     }
 
     // header Logo
@@ -101,6 +101,7 @@ public class HomePageHeader {
     WebElement email;
 
     public void enterEmail() {
+
         email.sendKeys("a@mail.com");
     }
 
@@ -162,9 +163,30 @@ public class HomePageHeader {
 
     public String disabledAutomatedSignUp() {
         return errorMSG.getText();
-    }
-    // mouse
-    //@FindBy(xpath = "//*[@id=\"m-bag-count-anchor\"]")
-    //WebElement jhj;
 
+    }
+
+    @FindBy (css = "[id='globalSearchInputField']")
+    WebElement ProductSearchBar;
+
+    public void selectProductSearchBar(){
+        ProductSearchBar.sendKeys("Acqua Di Gio Absolu Eau de Parfum");
+    }
+
+    @FindBy (css = "[id='searchSubmit']")
+        WebElement SearchButton;
+
+    public void clickSearchButton(){
+        SearchButton.click();
+    }
+    @FindBy (xpath = "//*[@id='img_5870915']")
+    WebElement AcquaDiGioAbsolu;
+
+    public void selectAcquaDiGioAbsolu() {
+        AcquaDiGioAbsolu.click();
+    }
+
+    @FindBy(xpath = "//*[@id=\"mainCont\"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/div[1]/div[4]/div/div[2]/div[1]/ul/li[4]")
+    WebElement 6,7oz;
+    ////*[@id="bag-add-5870915"]
 }

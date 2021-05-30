@@ -38,11 +38,11 @@ public class Base {
 
 
     //Closing Browser
-    @AfterMethod
-    void closeBrowser() throws InterruptedException {
-        Thread.sleep(15000);
+    /*@AfterMethod
+    void closeBrowser()  {
+        implicitWait(10);
         driver.quit();
-    }
+    }*/
 
 
 }
