@@ -186,17 +186,47 @@ public class HomePageHeader<oz> {
         AcquaDiGioAbsolu.click();
     }
 
-    @FindBy(xpath = "//*[@id='bag-add-5870915'] ")
-  WebElement cartAdding;
-  public void addToCart(){
-    cartAdding.sendKeys(Keys.ADD);
+    @FindBy (css = "[class='p-qty-btn p-qty-incr ']")
+            WebElement updateQuantity;
+
+            public void updateCartQuantity(){
+            updateQuantity.click();
+            }
+
+
+    @FindBy(css = "[data-action='change-zipcode']")
+  WebElement clickZipcode;
+  public void clickToChangeZipCode(){
+    clickZipcode.click();
 }
 
+    @FindBy(css = "[placeholder='Enter ZIP Code']")
+    WebElement clearZipcode;
+    public void clickClearZipcode(){
+        clearZipcode.clear();
+    }
+    @FindBy(css = "[placeholder='Enter ZIP Code']")
+    WebElement newZipcode;
+    public void enterNewZipcode() {
+        newZipcode.sendKeys( "02149");
+    }
 
+    @FindBy(css = "[class='button secondary small submit-sdd-zip-code']")
+    WebElement updateNewZipCode;
+    public void clickToApplyZipCode(){
+        updateNewZipCode.click();
+    }
 
-@FindBy(css = "[data-auto='pick-up-in-store-btn']")
-    WebElement PickUp;
-        public void selectPickUpOption(){
-      PickUp.click();
-        }
-}
+    @FindBy(css = "[data-auto='add-to-bag']")
+    WebElement addToBag;
+    public void clickAddToBag(){
+        addToBag.click();
+    }
+
+    @FindBy (xpath = "//*[@id='cta-notification-order-panel-5870915']/div/div/div[2]/div/p")
+    WebElement notificationMSG;
+    public String printNotification(){
+        return notificationMSG.getText();
+    }
+//clickAddtoCart()
+    }

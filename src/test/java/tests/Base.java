@@ -9,6 +9,8 @@ import org.testng.annotations.AfterMethod;
 
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.Thread.sleep;
+
 public class Base {
 
     // Set up driver, Invoke browser, maximize windows
@@ -36,13 +38,26 @@ public class Base {
         driver.switchTo().alert().dismiss();
     }
 
+    /*public static void main(String[] args) throws InterruptedException {
+        long start = System.currentTimeMillis();
+        Thread.sleep(2000);*/
+
+
+    //Thread.sleep
+
+    void sleep(long millis) throws InterruptedException {
+        Thread.sleep(millis);
+
+
+    }
 
     //Closing Browser
-    /*@AfterMethod
-    void closeBrowser()  {
-        implicitWait(10);
+    @AfterMethod
+    void closeBrowser(){
+        implicitWait(7);
         driver.quit();
-    }*/
-
+    }
 
 }
+
+

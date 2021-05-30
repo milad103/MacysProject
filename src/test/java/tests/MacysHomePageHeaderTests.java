@@ -12,6 +12,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePageHeader;
 
+import javax.annotation.concurrent.ThreadSafe;
+
 
 public class MacysHomePageHeaderTests extends Base {
 
@@ -73,7 +75,7 @@ public class MacysHomePageHeaderTests extends Base {
 
     }
 
-// Test Case M5: Asserting and clicking create account button
+    // Test Case M5: Asserting and clicking create account button
     @Test
     void testCreateAccountButton() {
         cookies();
@@ -84,7 +86,8 @@ public class MacysHomePageHeaderTests extends Base {
         Assert.assertEquals(currentURL, "https://www.macys.com/account/createaccount?cm_sp=my_account-_-sign_in-_-create_account");
 
     }
-// Test Case M6: newAccountSignUp
+
+    // Test Case M6: newAccountSignUp
     @Test
     void testNewAccountSignUp() {
         cookies();
@@ -95,12 +98,12 @@ public class MacysHomePageHeaderTests extends Base {
         homePageHeader.enterLastName();
         homePageHeader.enterEmail();
         homePageHeader.enterPassword();
-       homePageHeader.clickShowPassword();
+        homePageHeader.clickShowPassword();
         homePageHeader.clickMonthDropDown();
         homePageHeader.selectMonth();
         homePageHeader.selectDayDropDown();
         homePageHeader.selectDay();
-        JavascriptExecutor scrollDown = (JavascriptExecutor)driver;
+        JavascriptExecutor scrollDown = (JavascriptExecutor) driver;
         scrollDown.executeScript("window.scrollBy(0,250)", "");
         implicitWait(5);
         homePageHeader.clickCreateAccount();
@@ -111,29 +114,33 @@ public class MacysHomePageHeaderTests extends Base {
 
     // Test Case M7: Search "Giorgi Armani Acqua Di Gio Absolu Eau de Parfum" then add to cart then choose pick up as an option
     @Test
-    void addAcquaiDiGioToCart() {
+    void addAcquaiDiGioToCart() throws InterruptedException {
         cookies();
+        sleep(3000);
         homePageHeader.selectProductSearchBar();
         homePageHeader.clickSearchButton();
         cookies();
         homePageHeader.selectAcquaDiGioAbsolu();
-cookies();
-implicitWait(5);
- driver.findElement(By.cssSelector("[class='p-qty-btn p-qty-incr ']")).click();
-        driver.findElement(By.cssSelector("[data-action='change-zipcode']")).click();
-        //implicitWait(5);
- driver.findElement(By.cssSelector("[placeholder='Enter ZIP Code']")).clear();
- implicitWait(5);
- driver.findElement(By.cssSelector("[placeholder='Enter ZIP Code']")).sendKeys( "02149");
- implicitWait(3);
-        driver.findElement(By.cssSelector("[class='button secondary small submit-sdd-zip-code']")).click();
-driver.findElement(By.cssSelector("[data-action='product:bag:add']")).click();
-        //homePageHeader.selectPickUpOption();
-//implicitWait(5);
-        //homePageHeader.addToCart();
+        cookies();
+        implicitWait(5);
+        homePageHeader.updateCartQuantity();
+        cookies();
+        implicitWait(5);
+       homePageHeader.clickToChangeZipCode();
+       homePageHeader.clickClearZipcode();
+       homePageHeader.enterNewZipcode();
+       homePageHeader.clickToApplyZipCode();
+       cookies();
+       sleep(5000);
+       homePageHeader.clickAddToBag();
 
         //ASSERTION
+        homePageHeader.printNotification();
+        String actualText = homePageHeader.printNotification();
+        Assert.assertTrue(actualText.contains("you can order by phone at 1-800-289-6229"));
+
     }
 
 
     }
+
