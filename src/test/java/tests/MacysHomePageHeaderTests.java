@@ -113,19 +113,26 @@ public class MacysHomePageHeaderTests extends Base {
     @Test
     void addAcquaiDiGioToCart() {
         cookies();
-
         homePageHeader.selectProductSearchBar();
-
-        cookies();
         homePageHeader.clickSearchButton();
-
         cookies();
         homePageHeader.selectAcquaDiGioAbsolu();
-        cookies();
-        homePageHeader.selectPickUpOption();
-        cookies();
+cookies();
+implicitWait(5);
+ driver.findElement(By.cssSelector("[class='p-qty-btn p-qty-incr ']")).click();
+        driver.findElement(By.cssSelector("[data-action='change-zipcode']")).click();
+        //implicitWait(5);
+ driver.findElement(By.cssSelector("[placeholder='Enter ZIP Code']")).clear();
+ implicitWait(5);
+ driver.findElement(By.cssSelector("[placeholder='Enter ZIP Code']")).sendKeys( "02149");
+ implicitWait(3);
+        driver.findElement(By.cssSelector("[class='button secondary small submit-sdd-zip-code']")).click();
+driver.findElement(By.cssSelector("[data-action='product:bag:add']")).click();
+        //homePageHeader.selectPickUpOption();
+//implicitWait(5);
+        //homePageHeader.addToCart();
 
-        homePageHeader.addToCart();
+        //ASSERTION
     }
 
 

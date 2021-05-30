@@ -192,7 +192,9 @@ public class HomePageHeader<oz> {
     cartAdding.sendKeys(Keys.ADD);
 }
 
-@FindBy(css = "[id='pick-up-in-store-5870915']")
+
+
+@FindBy(css = "[data-auto='pick-up-in-store-btn']")
     WebElement PickUp;
         public void selectPickUpOption(){
       PickUp.click();
