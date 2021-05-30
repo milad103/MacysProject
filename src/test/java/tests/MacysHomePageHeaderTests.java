@@ -111,11 +111,21 @@ public class MacysHomePageHeaderTests extends Base {
 
     // Test Case M7: Search "Giorgi Armani Acqua Di Gio Absolu Eau de Parfum" then add to cart then choose pick up as an option
     @Test
-    void addAcquaiDiGioToCart(){
-        homePageHeader.selectProductSearchBar();
-        homePageHeader.clickSearchButton();
-        homePageHeader.selectAcquaDiGioAbsolu();
+    void addAcquaiDiGioToCart() {
+        cookies();
 
+        homePageHeader.selectProductSearchBar();
+
+        cookies();
+        homePageHeader.clickSearchButton();
+
+        cookies();
+        homePageHeader.selectAcquaDiGioAbsolu();
+        cookies();
+        homePageHeader.selectPickUpOption();
+        cookies();
+
+        homePageHeader.addToCart();
     }
 
 

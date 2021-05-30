@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -175,18 +176,25 @@ public class HomePageHeader<oz> {
 
     @FindBy (css = "[id='searchSubmit']")
         WebElement SearchButton;
-
     public void clickSearchButton(){
         SearchButton.click();
     }
-    @FindBy (xpath = "//*[@id='img_5870915']")
-    WebElement AcquaDiGioAbsolu;
 
+    @FindBy (xpath = "//*[@id=\"5870915\"]/div[2]/div/a")
+    WebElement AcquaDiGioAbsolu;
     public void selectAcquaDiGioAbsolu() {
         AcquaDiGioAbsolu.click();
     }
 
-    @FindBy(xpath = "//*[@id=\"mainCont\"]/div/div[2]/div[1]/div/div[2]/div/div[2]/div/div[1]/div[4]/div/div[2]/div[1]/ul/li[4]")
-    WebElement 6,7oz;
-    ////*[@id="bag-add-5870915"]
+    @FindBy(xpath = "//*[@id='bag-add-5870915'] ")
+  WebElement cartAdding;
+  public void addToCart(){
+    cartAdding.sendKeys(Keys.ADD);
+}
+
+@FindBy(css = "[id='pick-up-in-store-5870915']")
+    WebElement PickUp;
+        public void selectPickUpOption(){
+      PickUp.click();
+        }
 }
