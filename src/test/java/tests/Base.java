@@ -1,11 +1,13 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
 
@@ -21,7 +23,7 @@ public class Base {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
-
+//@BeforeClass
     // Delete cookies
     void cookies() {
 
@@ -50,13 +52,24 @@ public class Base {
 
 
     }
+    // scroll down to the bottom of the page
+    void scrollToBottom(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+    // cookie Notice closing
+
+    void closeCookiesNotice(){
+        driver.findElement(By.xpath("//i[@class='close_btn icon-close-white-lg-large']")).click();
+    }
 
     //Closing Browser
-    @AfterMethod
-    void closeBrowser(){
-        implicitWait(7);
-        driver.quit();
-    }
+    /*@AfterMethod
+    void closeBrowser() throws InterruptedException {
+        sleep(10000);
+       driver.quit();
+    }*/
 
 }
 

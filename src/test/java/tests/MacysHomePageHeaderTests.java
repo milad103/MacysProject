@@ -1,6 +1,6 @@
 package tests;
 
-import org.openqa.selenium.Alert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -50,9 +50,7 @@ public class MacysHomePageHeaderTests extends Base {
         String actualText = homePageHeader.wrongSignInMsgText();
         Assert.assertTrue(actualText.contains("Sorry,"));
 
-
     }
-
 
     //Test Case M3: Besides printing we are asserting that among the printed header element there's the word "STORES"
     @Test
@@ -103,16 +101,17 @@ public class MacysHomePageHeaderTests extends Base {
         homePageHeader.selectMonth();
         homePageHeader.selectDayDropDown();
         homePageHeader.selectDay();
+        implicitWait(10);
         JavascriptExecutor scrollDown = (JavascriptExecutor) driver;
         scrollDown.executeScript("window.scrollBy(0,250)", "");
-        implicitWait(5);
+        implicitWait(10);
         homePageHeader.clickCreateAccount();
         homePageHeader.disabledAutomatedSignUp();
         String actualText = homePageHeader.disabledAutomatedSignUp();
         Assert.assertTrue(actualText.contains("We're sorry, but we cannot display your information at this time."));
     }
 
-    // Test Case M7: Search "Giorgi Armani Acqua Di Gio Absolu Eau de Parfum" then add to cart then choose pick up as an option
+    // Test Case M7: Search "Giorgi Armani Acqua Di Gio Absolu Eau de Parfum" then add 2 items to cart.
     @Test
     void addAcquaiDiGioToCart() throws InterruptedException {
         cookies();

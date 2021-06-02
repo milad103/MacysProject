@@ -228,5 +228,4 @@ public class HomePageHeader<oz> {
     public String printNotification(){
         return notificationMSG.getText();
     }
-//clickAddtoCart()
     }
