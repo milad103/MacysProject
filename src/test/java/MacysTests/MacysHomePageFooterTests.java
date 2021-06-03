@@ -13,12 +13,12 @@ public class MacysHomePageFooterTests extends Base {
 
     @BeforeMethod
     void setupHomePage() {
-        setup("firefox");
+        setup("chrome");
         driver.get(URL);
 
         homepageFooter = PageFactory.initElements(driver, HomePageFooter.class);
     }
-//Test Case M8: Print all the element of the Footer with assertion.
+//Test Case M11: Print all the element of the Footer with assertion.
     @Test
     void testPrintAllFooterElement(){
         cookies();
@@ -28,7 +28,7 @@ public class MacysHomePageFooterTests extends Base {
        Assert.assertTrue(text.contains("Easy web browsing for visually impaired customers"));
 
     }
-    //Test Case M9: Assert that media link for the macys' Facebook page is working properly
+    //Test Case M12: Assert that media link for the macys' Facebook page is working properly
     @Test
     void testFacebookLink(){
         cookies();
@@ -40,7 +40,7 @@ public class MacysHomePageFooterTests extends Base {
 
     }
 
-    //Test Case M10: Test App Store Link for Macys website
+    //Test Case M13: Test App Store Link for Macys website
     @Test
     void testAppStoreLink() {
         cookies();

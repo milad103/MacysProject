@@ -16,7 +16,7 @@ public class MacysHomePageHeaderTests extends Base {
 
     @BeforeMethod
     void setupHomePage() {
-        setup("firefox");
+        setup("chrome");
         driver.get(URL);
 
         homePageHeader = PageFactory.initElements(driver, HomePageHeader.class);
@@ -24,11 +24,12 @@ public class MacysHomePageHeaderTests extends Base {
 
 
     //Test Case M1: Asserting that SignIn Button is clickable
+    @Test
     void testSignInButtonText() {
         implicitWait(5);
         cookies();
         homePageHeader.SignInButtonClicking();
-        String actualText = homePageHeader.getSignInText();
+        String actualText =  homePageHeader.signInText();
         Assert.assertEquals(actualText, "Sign In");
     }
 
@@ -134,7 +135,7 @@ public class MacysHomePageHeaderTests extends Base {
 
     }
 
-//Test Case M13: Asserting the Macys Logo is visible at the header in Macys HomePAge
+//Test Case M8: Asserting the Macys Logo is visible at the header in Macys HomePAge
 
     @Test
     void testHeaderMacysLogoVisiblity(){

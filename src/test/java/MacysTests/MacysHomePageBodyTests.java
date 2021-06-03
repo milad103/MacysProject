@@ -17,24 +17,15 @@ public class MacysHomePageBodyTests extends Base{
 
     @BeforeMethod
     void setupHomePage(){
-        setup("firefox");
+        setup("chrome");
         driver.get(URL);
         homePageBody = PageFactory.initElements(driver, HomePageBody.class);
 
     }
 
-    @Test
-    void testing(){
-        implicitWait(10);
 
-        driver.findElement(By.xpath("//i[@class='close_btn icon-close-white-lg-large']")).click();
-        scrollToBottom();
-        implicitWait(10);
-        driver.findElement(By.xpath("//*[@id=\"row_17\"]/ul/li/div/a/div/picture/img")).click();
-        driver.findElement(By.cssSelector("[name='EMAIL_ADDRESS_']")).click();
-    }
 
-    //Test Case M11: Test  Email Signup in the body then assert that!
+    //Test Case M9: Test  Email Signup in the body then assert that!
     @Test
     void testEmailSignUp() throws InterruptedException {
         cookies();
@@ -61,7 +52,7 @@ public class MacysHomePageBodyTests extends Base{
         Assert.assertTrue(actualText.contains("LOOKS LIKE YOU’RE ALREADY IN OUR SYSTEM!!"));
     }
 
-// Test Case M12:
+// Test Case M10:
     @Test
     void testJoinStarRewards() throws InterruptedException {
         closeCookiesNotice();
