@@ -1,14 +1,10 @@
-package tests;
+package MacysTests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.HomePageFooter;
-import pages.HomePageHeader;
+import MacysPages.HomePageFooter;
 
 public class MacysHomePageFooterTests extends Base {
     HomePageFooter homepageFooter;
@@ -17,7 +13,7 @@ public class MacysHomePageFooterTests extends Base {
 
     @BeforeMethod
     void setupHomePage() {
-        setup();
+        setup("firefox");
         driver.get(URL);
 
         homepageFooter = PageFactory.initElements(driver, HomePageFooter.class);

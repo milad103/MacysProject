@@ -1,13 +1,11 @@
-package pages;
+package MacysPages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-public class HomePageHeader<oz> {
+public class HomePageHeader {
+
 
     @FindBy(xpath = "//*[@id=\"myRewardsLabel-status\"]/span[1]")
     WebElement SignInButton;
@@ -227,5 +225,12 @@ public class HomePageHeader<oz> {
     WebElement notificationMSG;
     public String printNotification(){
         return notificationMSG.getText();
+    }
+
+    @FindBy(xpath = "//*[@id='logo']")
+    WebElement MacysLogo;
+
+    public boolean MacysHeaderLogo(){
+        return MacysLogo.isDisplayed();
     }
     }

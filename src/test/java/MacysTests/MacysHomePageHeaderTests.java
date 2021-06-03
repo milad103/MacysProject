@@ -1,18 +1,12 @@
-package tests;
+package MacysTests;
 
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.HomePageHeader;
-
-import javax.annotation.concurrent.ThreadSafe;
+import MacysPages.HomePageHeader;
 
 
 public class MacysHomePageHeaderTests extends Base {
@@ -22,7 +16,7 @@ public class MacysHomePageHeaderTests extends Base {
 
     @BeforeMethod
     void setupHomePage() {
-        setup();
+        setup("firefox");
         driver.get(URL);
 
         homePageHeader = PageFactory.initElements(driver, HomePageHeader.class);
@@ -140,6 +134,12 @@ public class MacysHomePageHeaderTests extends Base {
 
     }
 
+//Test Case M13: Asserting the Macys Logo is visible at the header in Macys HomePAge
 
+    @Test
+    void testHeaderMacysLogoVisiblity(){
+        boolean actualCondtion = homePageHeader.MacysHeaderLogo();
+        Assert.assertEquals(actualCondtion, true);
+    }
     }
 

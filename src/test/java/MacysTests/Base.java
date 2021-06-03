@@ -1,13 +1,11 @@
-package tests;
+package MacysTests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,14 +14,26 @@ import static java.lang.Thread.sleep;
 public class Base {
 
     // Set up driver, Invoke browser, maximize windows
-    WebDriver driver;
 
-    void setup() {
+    WebDriver driver;
+    //WebDriver driver2;
+
+    void setup(String browser) {
+        if(browser.equalsIgnoreCase("chrome")){
+            System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+            driver = new ChromeDriver();
+        }else if(browser.equalsIgnoreCase("firefox")){
+            System.setProperty("webdriver.gecko.driver", "resources/geckodriver.exe");
+            driver = new FirefoxDriver();
+        }
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-        driver = new ChromeDriver();
+        //driver = new ChromeDriver();
         driver.manage().window().maximize();
+        //driver = new FirefoxDriver();
+
+
     }
-//@BeforeClass
+
     // Delete cookies
     void cookies() {
 
@@ -65,11 +75,11 @@ public class Base {
     }
 
     //Closing Browser
-    /*@AfterMethod
+    @AfterMethod
     void closeBrowser() throws InterruptedException {
-        sleep(10000);
+        sleep(5000);
        driver.quit();
-    }*/
+    }
 
 }
 

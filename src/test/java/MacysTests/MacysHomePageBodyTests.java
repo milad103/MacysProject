@@ -1,16 +1,13 @@
-package tests;
+package MacysTests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.HomePageBody;
-
-import java.security.Key;
+import MacysPages.HomePageBody;
 
 public class MacysHomePageBodyTests extends Base{
 
@@ -20,7 +17,7 @@ public class MacysHomePageBodyTests extends Base{
 
     @BeforeMethod
     void setupHomePage(){
-        setup();
+        setup("firefox");
         driver.get(URL);
         homePageBody = PageFactory.initElements(driver, HomePageBody.class);
 
@@ -64,7 +61,7 @@ public class MacysHomePageBodyTests extends Base{
         Assert.assertTrue(actualText.contains("LOOKS LIKE YOU’RE ALREADY IN OUR SYSTEM!!"));
     }
 
-// Test Case M11:
+// Test Case M12:
     @Test
     void testJoinStarRewards() throws InterruptedException {
         closeCookiesNotice();
