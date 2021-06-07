@@ -4,6 +4,7 @@
 <suite name="Macys">
     <test name="MacysTests">
         <classes>
+
             <class name="MacysTests.MacysHomePageHeaderTests"/>
             <class name="MacysTests.MacysHomePageBodyTests"/>
             <class name="MacysTests.MacysHomePageFooterTests"> </class>
