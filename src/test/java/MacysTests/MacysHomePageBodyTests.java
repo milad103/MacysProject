@@ -65,4 +65,6 @@ public class MacysHomePageBodyTests extends Base{
         driver.findElement(By.xpath("//*[@id=\"rowP-157727\"]/div/map/area[2]")).click();
 
     }
+
+
 }

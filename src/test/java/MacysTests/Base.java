@@ -28,7 +28,7 @@ public class Base {
 
             }
 
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
 
     }
 
@@ -69,11 +69,11 @@ public class Base {
     }
 
     //Closing Browser
-    @AfterMethod
+    /*@AfterMethod
     void closeBrowser() throws InterruptedException {
-        sleep(5000);
+        sleep(12000);
        driver.quit();
-    }
+    }*/
 
 }
 

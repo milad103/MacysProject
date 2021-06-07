@@ -1,12 +1,19 @@
 package MacysTests;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import MacysPages.HomePageHeader;
+
 
 
 public class MacysHomePageHeaderTests extends Base {
@@ -29,7 +36,7 @@ public class MacysHomePageHeaderTests extends Base {
         implicitWait(5);
         cookies();
         homePageHeader.SignInButtonClicking();
-        String actualText =  homePageHeader.signInText();
+        String actualText = homePageHeader.signInText();
         Assert.assertEquals(actualText, "Sign In");
     }
 
@@ -120,13 +127,13 @@ public class MacysHomePageHeaderTests extends Base {
         homePageHeader.updateCartQuantity();
         cookies();
         implicitWait(5);
-       homePageHeader.clickToChangeZipCode();
-       homePageHeader.clickClearZipcode();
-       homePageHeader.enterNewZipcode();
-       homePageHeader.clickToApplyZipCode();
-       cookies();
-       sleep(5000);
-       homePageHeader.clickAddToBag();
+        homePageHeader.clickToChangeZipCode();
+        homePageHeader.clickClearZipcode();
+        homePageHeader.enterNewZipcode();
+        homePageHeader.clickToApplyZipCode();
+        cookies();
+        sleep(5000);
+        homePageHeader.clickAddToBag();
 
         //ASSERTION
         homePageHeader.printNotification();
@@ -138,9 +145,26 @@ public class MacysHomePageHeaderTests extends Base {
 //Test Case M8: Asserting the Macys Logo is visible at the header in Macys HomePAge
 
     @Test
-    void testHeaderMacysLogoVisiblity(){
+    void testHeaderMacysLogoVisiblity() {
         boolean actualCondtion = homePageHeader.MacysHeaderLogo();
         Assert.assertEquals(actualCondtion, true);
     }
+
+    @Test
+    void
+    testing() {
+        cookies();
+        closeCookiesNotice();
+        implicitWait(10);
+        cookies();
+        ((JavascriptExecutor) driver).executeScript("document.getElementById('shopByDepartmentDropdown').style.display='block';");
+        //Actions actions = new Actions(driver);
+        // actions.moveToElement(driver.findElement(By.id("shopByDepartmentDropdown"))).build().perform();
+        ((JavascriptExecutor) driver).executeScript("document.getElementById('flexid_118').style.display='block';");
+        ////*[@id="mainNavigationFlyouts"]/div[2]/div[1]/div/a[7]
+        //driver.findElement(By.xpath("//*[@id=\"mainNavigationFlyouts\"]/div[2]/div[1]/div/a[7]")).click();
+
+
     }
+}
 
