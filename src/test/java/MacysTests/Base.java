@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterMethod;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -16,21 +17,18 @@ public class Base {
     // Set up driver, Invoke browser, maximize windows
 
     WebDriver driver;
-    //WebDriver driver2;
 
     void setup(String browser) {
-        if(browser.equalsIgnoreCase("chrome")){
+        if (browser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
             driver = new ChromeDriver();
-        }else if(browser.equalsIgnoreCase("firefox")){
+        } else if (browser.equalsIgnoreCase("firefox")) {
             System.setProperty("webdriver.gecko.driver", "resources/geckodriver.exe");
             driver = new FirefoxDriver();
-        }
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-        //driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        //driver = new FirefoxDriver();
 
+            }
+
+        //driver.manage().window().maximize();
 
     }
 
@@ -49,10 +47,6 @@ public class Base {
     void dismissAlert() {
         driver.switchTo().alert().dismiss();
     }
-
-    /*public static void main(String[] args) throws InterruptedException {
-        long start = System.currentTimeMillis();
-        Thread.sleep(2000);*/
 
 
     //Thread.sleep
@@ -75,11 +69,11 @@ public class Base {
     }
 
     //Closing Browser
-    @AfterMethod
+    /*@AfterMethod
     void closeBrowser() throws InterruptedException {
-        sleep(5000);
+        sleep(12000);
        driver.quit();
-    }
+    }*/
 
 }
 

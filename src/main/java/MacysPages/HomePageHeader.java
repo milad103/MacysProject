@@ -6,14 +6,19 @@ import org.openqa.selenium.support.ui.Select;
 public class HomePageHeader {
 
 
-    @FindBy(xpath = "//*[@id=\"myRewardsLabel-status\"]/span[1]")
+    @FindBy(xpath = "//*[@id='myRewardsLabel-status']")
     WebElement SignInButton;
 
     public void SignInButtonClicking() {
 
-        SignInButton.click();
+       SignInButton.click();
     }
+    @FindBy(xpath = "//*[@id='pm-desktop-subheading']")
+    WebElement signInTXT;
 
+public String signInText(){
+        return signInTXT.getText();
+    }
     @FindBy(css = "[id='email']")
     WebElement signInEmail;
 
@@ -194,7 +199,8 @@ public class HomePageHeader {
     @FindBy(css = "[data-action='change-zipcode']")
   WebElement clickZipcode;
   public void clickToChangeZipCode(){
-    clickZipcode.click();
+
+      clickZipcode.click();
 }
 
     @FindBy(css = "[placeholder='Enter ZIP Code']")
@@ -211,6 +217,7 @@ public class HomePageHeader {
     @FindBy(css = "[class='button secondary small submit-sdd-zip-code']")
     WebElement updateNewZipCode;
     public void clickToApplyZipCode(){
+
         updateNewZipCode.click();
     }
 
