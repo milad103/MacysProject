@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Macys">
-    <test name="MacysTests">
+<suite name="MacysProject">
+    <listeners>
+        <listener class-name="ReportsPKG.QEReports"/>
+    </listeners>
+
+    <test name="regression">
         <classes>
+
             <class name="MacysTests.MacysHomePageHeaderTests"/>
-            <class name="MacysTests.MacysHomePageBodyTests"/>
-            <class name="MacysTests.MacysHomePageFooterTests"> </class>
+<!--            <class name="MacysTests.MacysHomePageBodyTests"/>-->
+<!--            <class name="MacysTests.MacysHomePageFooterTests"></class>-->
 
         </classes>
     </test>

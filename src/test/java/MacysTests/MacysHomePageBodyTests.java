@@ -53,7 +53,7 @@ public class MacysHomePageBodyTests extends Base{
     }
 
 // Test Case M10:
-    @Test
+    @Test(enabled = false)
     void testJoinStarRewards() throws InterruptedException {
         closeCookiesNotice();
         JavascriptExecutor js = (JavascriptExecutor) driver;

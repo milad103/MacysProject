@@ -1,18 +1,21 @@
 package MacysTests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.io.FileHandler;
+import org.testng.ITestResult;
+import org.testng.TestListenerAdapter;
 import org.testng.annotations.AfterMethod;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.Thread.sleep;
 
-public class Base {
+public class Base extends TestListenerAdapter {
 
     // Set up driver, Invoke browser, maximize windows
 
@@ -31,6 +34,11 @@ public class Base {
         //driver.manage().window().maximize();
 
     }
+public void screenshot() throws IOException {
+    TakesScreenshot ts = (TakesScreenshot)driver;
+    File source = ts.getScreenshotAs(OutputType.FILE);
+    FileHandler.copy(source, new File("./Screenshots/macys002.png"));
+}
 
     // Delete cookies
     void cookies() {
@@ -69,11 +77,12 @@ public class Base {
     }
 
     //Closing Browser
-    /*@AfterMethod
-    void closeBrowser() throws InterruptedException {
-        sleep(12000);
+    @AfterMethod
+    void closeBrowser() throws IOException {
+        screenshot();
+
        driver.quit();
-    }*/
+    }
 
 }
 
