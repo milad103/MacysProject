@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import MacysPages.HomePageFooter;
 
+import java.io.IOException;
+
 public class MacysHomePageFooterTests extends Base {
     HomePageFooter homepageFooter;
 
@@ -42,13 +44,12 @@ public class MacysHomePageFooterTests extends Base {
 
     //Test Case M13: Test App Store Link for Macys website
     @Test
-    void testAppStoreLink() {
+    void testAppStoreLink() throws IOException {
         cookies();
         scrollToBottom();
          homepageFooter.clickAppStore();
          String currentURL = driver.getCurrentUrl();
          Assert.assertEquals(currentURL, "https://apps.apple.com/us/app/id341036067");
-
 
     }
 }

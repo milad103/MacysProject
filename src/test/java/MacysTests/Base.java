@@ -2,9 +2,7 @@ package MacysTests;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.io.FileHandler;
-import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 import org.testng.annotations.AfterMethod;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -34,12 +32,18 @@ public class Base extends TestListenerAdapter {
         //driver.manage().window().maximize();
 
     }
+/*public void screenShot2() throws IOException {
+    File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+    FileHandler.copy(screenshot, new File("./Screenshots/macys001.png"));
+    }
+*/
+
 public void screenshot() throws IOException {
-    TakesScreenshot ts = (TakesScreenshot)driver;
+    TakesScreenshot ts = (TakesScreenshot) driver;
     File source = ts.getScreenshotAs(OutputType.FILE);
     FileHandler.copy(source, new File("./Screenshots/macys002.png"));
-}
 
+}
     // Delete cookies
     void cookies() {
 
@@ -78,8 +82,7 @@ public void screenshot() throws IOException {
 
     //Closing Browser
     @AfterMethod
-    void closeBrowser() throws IOException {
-        screenshot();
+    void closeBrowser(){
 
        driver.quit();
     }
