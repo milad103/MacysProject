@@ -19,7 +19,7 @@ public class MacysHomePageBodyTests extends Base{
 
     @BeforeMethod
     void setupHomePage() throws IOException {
-        setup("chrome");
+        setup("explorer");
         driver.get(URL);
         homePageBody = PageFactory.initElements(driver, HomePageBody.class);
 

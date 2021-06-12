@@ -1,6 +1,7 @@
 package MacysTests;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
 import org.openqa.selenium.support.PageFactory;
@@ -19,7 +20,7 @@ public class MacysHomePageHeaderTests extends Base {
 
     @BeforeMethod
     void setupHomePage() throws IOException {
-        setup("chrome");
+        setup("explorer");
         driver.get(URL);
 
 
@@ -86,7 +87,7 @@ public class MacysHomePageHeaderTests extends Base {
 
     // Test Case M6: newAccountSignUp
     @Test
-    void testNewAccountSignUp() {
+    void testNewAccountSignUp() throws InterruptedException {
         cookies();
         homePageHeader.SignInButtonClicking();
         cookies();
@@ -95,14 +96,17 @@ public class MacysHomePageHeaderTests extends Base {
         homePageHeader.enterLastName();
         homePageHeader.enterEmail();
         homePageHeader.enterPassword();
-        homePageHeader.clickShowPassword();
+        //homePageHeader.clickShowPassword();
+        implicitWait(10);
+        windowScrollByPixels("window.scrollBy(0,250)");
         homePageHeader.clickMonthDropDown();
         homePageHeader.selectMonth();
         homePageHeader.selectDayDropDown();
         homePageHeader.selectDay();
-        implicitWait(10);
-        windowScrollByPixels("window.scrollBy(0,250)");
-        implicitWait(10);
+        sleep(5000);
+        homePageHeader.checkRewardBox();
+       sleep(3000);
+        closeCookiesNotice();
         homePageHeader.clickCreateAccount();
         homePageHeader.disabledAutomatedSignUp();
         String actualText = homePageHeader.disabledAutomatedSignUp();
@@ -186,6 +190,13 @@ public class MacysHomePageHeaderTests extends Base {
         Assert.assertTrue(actualText.contains("you can order by phone at 1-800-289-6229"));
 
 
+    }
+
+    @Test
+    void test(){
+        cookies();
+        closeCookiesNotice();
+        driver.findElement(By.id("bagCount")).click();
     }
 }
 

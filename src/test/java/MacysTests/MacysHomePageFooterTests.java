@@ -15,7 +15,7 @@ public class MacysHomePageFooterTests extends Base {
 
     @BeforeMethod
     void setupHomePage() throws IOException {
-        setup("chrome");
+        setup("explorer");
         driver.get(URL);
 
         homepageFooter = PageFactory.initElements(driver, HomePageFooter.class);

@@ -67,7 +67,7 @@ public class HomePageBody {
         year.selectByValue("1991");
     }
 
-    @FindBy (css = "[id='statusImg']")
+    @FindBy (css = "[id='VerifyCheckboxCB']")
     WebElement checkBox;
     public void clickCheckBox(){
         checkBox.click();

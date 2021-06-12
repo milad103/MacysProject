@@ -106,7 +106,7 @@ public String signInText(){
 
     public void enterEmail() {
 
-        email.sendKeys("a@mail.com");
+        email.sendKeys("ailokoi@gmail.com");
     }
 
     //Password
@@ -114,7 +114,8 @@ public String signInText(){
     WebElement password;
 
     public void enterPassword() {
-        password.sendKeys("123456789$");
+
+        password.sendKeys("L123456789$");
     }
 
     // show password
@@ -122,11 +123,12 @@ public String signInText(){
     WebElement showPassword;
 
     public void clickShowPassword() {
+
         showPassword.click();
     }
 
     //Birthday Month selection
-    @FindBy(css = "[data-date='month']")
+    @FindBy(xpath = "//*[@id='ca-profile-birth-month']")
     WebElement monthSelectDropdown;
 
     public void clickMonthDropDown() {
@@ -154,8 +156,17 @@ public String signInText(){
         drop.selectByIndex(5);
     }
 
+    //check box
+    @FindBy(id = "ca-profile-star-rewards")
+    WebElement checkBox;
+
+    // Check rewards box
+
+    public void checkRewardBox(){
+        checkBox.click();
+    }
     //Create Account
-    @FindBy(xpath = "//button[@class='primary expanded submit']")
+    @FindBy(css = "[class='primary expanded submit']")
     WebElement createAccount;
 
     public void clickCreateAccount() {

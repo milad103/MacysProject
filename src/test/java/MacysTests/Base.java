@@ -32,6 +32,7 @@ public class Base {
             System.setProperty("webdriver.ie.driver", "resources/IEDriverServer.exe");
             driver = new InternetExplorerDriver();
         }
+        driver.manage().window().maximize();
     }
     public void screenshot(String word) throws IOException {
 
@@ -39,7 +40,7 @@ public class Base {
 
         FileUtils.copyFile(scrFile, new File("./Screenshots.png"));
     }
-        //driver.manage().window().maximize();
+
 
 
 /*public void screenShot2() throws IOException {
@@ -61,6 +62,7 @@ public class Base {
 
     //Dismiss alert
     void dismissAlert() {
+
         driver.switchTo().alert().dismiss();
     }
 
@@ -69,7 +71,6 @@ public class Base {
 
     void sleep(long millis) throws InterruptedException {
         Thread.sleep(millis);
-
 
     }
 
@@ -83,20 +84,18 @@ public class Base {
     void closeCookiesNotice() {
         driver.findElement(By.xpath("//i[@class='close_btn icon-close-white-lg-large']")).click();
     }
-    void windowScrollByPixels(String script) {
+    void windowScrollByPixels(String arguments) {
         JavascriptExecutor scrollDown = (JavascriptExecutor) driver;
-        scrollDown.executeScript(script);
+        scrollDown.executeScript(arguments);
     }
 
     //Closing Browser
 
-    @AfterMethod
+    /*@AfterMethod
     void closeBrowser() throws InterruptedException {
         sleep(10000);
         driver.quit();
-
-
-        }
+        }*/
     }
 
     /*public void screenshotMethod() throws IOException {
