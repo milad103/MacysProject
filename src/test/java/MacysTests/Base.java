@@ -3,21 +3,13 @@ package MacysTests;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-<<<<<<< HEAD
-=======
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
->>>>>>> aeb644619ec57a71518260dd9022c77b15fe26fb
-import org.openqa.selenium.io.FileHandler;
-import org.testng.TestListenerAdapter;
 import org.testng.annotations.AfterMethod;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
-import static java.lang.Thread.sleep;
 
 public class Base {
 
@@ -25,7 +17,7 @@ public class Base {
 
     public WebDriver driver;
 
-    void setup(String browser) throws IOException {
+    void setup(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
             driver = new ChromeDriver();
@@ -49,22 +41,13 @@ public class Base {
     }
         //driver.manage().window().maximize();
 
-<<<<<<< HEAD
-    }
+
 /*public void screenShot2() throws IOException {
     File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
     FileHandler.copy(screenshot, new File("./Screenshots/macys001.png"));
     }
 */
 
-public void screenshot() throws IOException {
-    TakesScreenshot ts = (TakesScreenshot) driver;
-    File source = ts.getScreenshotAs(OutputType.FILE);
-    FileHandler.copy(source, new File("./Screenshots/macys002.png"));
-=======
->>>>>>> aeb644619ec57a71518260dd9022c77b15fe26fb
-
-}
     // Delete cookies
     void cookies() {
 
@@ -106,16 +89,12 @@ public void screenshot() throws IOException {
     }
 
     //Closing Browser
-<<<<<<< HEAD
+
     @AfterMethod
-    void closeBrowser(){
-=======
-    //@AfterMethod
     void closeBrowser() throws InterruptedException {
-        //screenshot("onTestFailure");
-        //sleep(10000);
-        //driver.quit();
->>>>>>> aeb644619ec57a71518260dd9022c77b15fe26fb
+        sleep(10000);
+        driver.quit();
+
 
         }
     }
