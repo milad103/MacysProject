@@ -6,13 +6,15 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import MacysPages.HomePageFooter;
 
+import java.io.IOException;
+
 public class MacysHomePageFooterTests extends Base {
     HomePageFooter homepageFooter;
 
     String URL = "https://macys.com";
 
     @BeforeMethod
-    void setupHomePage() {
+    void setupHomePage() throws IOException {
         setup("chrome");
         driver.get(URL);
 

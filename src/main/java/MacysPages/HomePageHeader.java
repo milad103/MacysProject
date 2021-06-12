@@ -9,6 +9,7 @@ public class HomePageHeader {
     @FindBy(xpath = "//*[@id='myRewardsLabel-status']")
     WebElement SignInButton;
 
+// Click Sign In button
     public void SignInButtonClicking() {
 
        SignInButton.click();
@@ -172,8 +173,13 @@ public String signInText(){
     @FindBy (css = "[id='globalSearchInputField']")
     WebElement ProductSearchBar;
 
-    public void selectProductSearchBar(){
-        ProductSearchBar.sendKeys("Acqua Di Gio Absolu Eau de Parfum");
+    public void clickProductSearchBar(){
+        ProductSearchBar.click();
+    }
+
+
+    public void selectaProductInSearchBar(String ProductName){
+        ProductSearchBar.sendKeys(ProductName);
     }
 
     @FindBy (css = "[id='searchSubmit']")
@@ -188,7 +194,7 @@ public String signInText(){
         AcquaDiGioAbsolu.click();
     }
 
-    @FindBy (css = "[class='p-qty-btn p-qty-incr ']")
+    @FindBy (css = "[data-auto='increment-button']")
             WebElement updateQuantity;
 
             public void updateCartQuantity(){
@@ -227,7 +233,7 @@ public String signInText(){
         addToBag.click();
     }
 
-    @FindBy (xpath = "//*[@id='cta-notification-order-panel-5870915']/div/div/div[2]/div/p")
+    @FindBy (css = "[class='notification-body']")////*[@id="cta-notification-order-panel-139768"]/div/div/div[2]/div/p
     WebElement notificationMSG;
     public String printNotification(){
         return notificationMSG.getText();
@@ -239,4 +245,19 @@ public String signInText(){
     public boolean MacysHeaderLogo(){
         return MacysLogo.isDisplayed();
     }
+
+
+    @FindBy(id = "img_202534")
+    WebElement CBK200Breakmaker;
+
+    public void selectCBK200Breakmaker(){
+        CBK200Breakmaker.click();
     }
+
+    @FindBy(id = "img_139768")
+    WebElement DCC450_4_CupCoffeeMaker;
+            public void selectDCC450_4_CupCoffeeMaker(){
+                DCC450_4_CupCoffeeMaker.click();
+            }
+
+}

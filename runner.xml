@@ -8,15 +8,12 @@
 
     <test name="regression">
         <classes>
-
             <class name="MacysTests.MacysHomePageHeaderTests"/>
-<!--            <class name="MacysTests.MacysHomePageBodyTests"/>-->
-<!--            <class name="MacysTests.MacysHomePageFooterTests"></class>-->
+            <class name="MacysTests.MacysHomePageBodyTests"/>
+            <class name="MacysTests.MacysHomePageFooterTests"></class>
 
         </classes>
     </test>
-
-
 
 
 

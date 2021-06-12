@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import MacysPages.HomePageBody;
 
+import java.io.IOException;
+
 public class MacysHomePageBodyTests extends Base{
 
     HomePageBody homePageBody;
@@ -16,7 +18,7 @@ public class MacysHomePageBodyTests extends Base{
 
 
     @BeforeMethod
-    void setupHomePage(){
+    void setupHomePage() throws IOException {
         setup("chrome");
         driver.get(URL);
         homePageBody = PageFactory.initElements(driver, HomePageBody.class);
@@ -53,7 +55,7 @@ public class MacysHomePageBodyTests extends Base{
     }
 
 // Test Case M10:
-    @Test(enabled = false)
+    @Test
     void testJoinStarRewards() throws InterruptedException {
         closeCookiesNotice();
         JavascriptExecutor js = (JavascriptExecutor) driver;
