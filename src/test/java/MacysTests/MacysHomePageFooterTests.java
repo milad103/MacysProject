@@ -42,7 +42,7 @@ public class MacysHomePageFooterTests extends Base {
 
     }
 
-    //Test Case M13: Test App Store Link for Macys website
+    //Test Case M13: Test App Store Link for Macy's website
     @Test
     void testAppStoreLink() throws IOException {
         cookies();
