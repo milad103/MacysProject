@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import MacysPages.HomePageHeader;
 
+import java.io.IOException;
 
 
 public class MacysHomePageHeaderTests extends Base {
@@ -17,9 +18,10 @@ public class MacysHomePageHeaderTests extends Base {
     String URL = "https://macys.com";
 
     @BeforeMethod
-    void setupHomePage() {
+    void setupHomePage() throws IOException {
         setup("chrome");
         driver.get(URL);
+
 
         homePageHeader = PageFactory.initElements(driver, HomePageHeader.class);
     }
@@ -45,7 +47,7 @@ public class MacysHomePageHeaderTests extends Base {
         homePageHeader.enterSigninPwd();
         homePageHeader.clickAccountPageSignInButton();
         String actualText = homePageHeader.wrongSignInMsgText();
-        Assert.assertTrue(actualText.contains("Sorry,"));
+        Assert.assertTrue(actualText.contains("Sorrooooy,"));
 
     }
 
@@ -99,8 +101,7 @@ public class MacysHomePageHeaderTests extends Base {
         homePageHeader.selectDayDropDown();
         homePageHeader.selectDay();
         implicitWait(10);
-        JavascriptExecutor scrollDown = (JavascriptExecutor) driver;
-        scrollDown.executeScript("window.scrollBy(0,250)", "");
+        windowScrollByPixels("window.scrollBy(0,250)");
         implicitWait(10);
         homePageHeader.clickCreateAccount();
         homePageHeader.disabledAutomatedSignUp();
@@ -113,7 +114,7 @@ public class MacysHomePageHeaderTests extends Base {
     void addAcquaiDiGioToCart() throws InterruptedException {
         cookies();
         sleep(3000);
-        homePageHeader.selectProductSearchBar();
+        homePageHeader.selectaProductInSearchBar("Acqua Di Gio Absolu Eau de Parfum");
         homePageHeader.clickSearchButton();
         cookies();
         homePageHeader.selectAcquaDiGioAbsolu();
@@ -145,19 +146,44 @@ public class MacysHomePageHeaderTests extends Base {
         Assert.assertEquals(actualCondtion, true);
     }
 
+    //Test Case M14: search one product then add 2 items to bag then refresh browser then search another item again then
+    //increment number of items to 2 then assert that.
     @Test
-    void
-    testing() {
+    void testAddingMultipleItemsToCart() throws InterruptedException {
         cookies();
         closeCookiesNotice();
         implicitWait(10);
+        homePageHeader.clickProductSearchBar();
+        homePageHeader.selectaProductInSearchBar("CBK-200 Bread Maker");
+        homePageHeader.clickSearchButton();
         cookies();
-        ((JavascriptExecutor) driver).executeScript("document.getElementById('shopByDepartmentDropdown').style.display='block';");
-        //Actions actions = new Actions(driver);
-        // actions.moveToElement(driver.findElement(By.id("shopByDepartmentDropdown"))).build().perform();
-        ((JavascriptExecutor) driver).executeScript("document.getElementById('flexid_118').style.display='block';");
-        ////*[@id="mainNavigationFlyouts"]/div[2]/div[1]/div/a[7]
-        //driver.findElement(By.xpath("//*[@id=\"mainNavigationFlyouts\"]/div[2]/div[1]/div/a[7]")).click();
+        implicitWait(5);
+        homePageHeader.selectCBK200Breakmaker();
+        homePageHeader.updateCartQuantity();
+        homePageHeader.clickAddToBag();
+        implicitWait(10);
+        cookies();
+        //refresh browser
+        driver.navigate().to(URL);
+        cookies();
+        implicitWait(5);
+        //search another product
+        homePageHeader.clickProductSearchBar();
+        homePageHeader.selectaProductInSearchBar("DCC-450 4-Cup Coffee Maker");
+        homePageHeader.clickSearchButton();
+        cookies();
+        implicitWait(5);
+        homePageHeader.selectDCC450_4_CupCoffeeMaker();
+        cookies();
+        implicitWait(5);
+        homePageHeader.updateCartQuantity();
+        cookies();
+        implicitWait(5);
+        homePageHeader.clickAddToBag();
+        //ASSERTION
+        homePageHeader.printNotification();
+        String actualText = homePageHeader.printNotification();
+        Assert.assertTrue(actualText.contains("you can order by phone at 1-800-289-6229"));
 
 
     }

@@ -14,7 +14,7 @@ public class MacysHomePageFooterTests extends Base {
     String URL = "https://macys.com";
 
     @BeforeMethod
-    void setupHomePage() {
+    void setupHomePage() throws IOException {
         setup("chrome");
         driver.get(URL);
 
