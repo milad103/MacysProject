@@ -19,7 +19,7 @@ public class MacysHomePageBodyTests extends Base{
 
     @BeforeMethod
     void setupHomePage() throws IOException {
-        setup("explorer");
+        setup();
         driver.get(URL);
         homePageBody = PageFactory.initElements(driver, HomePageBody.class);
 
@@ -52,19 +52,6 @@ public class MacysHomePageBodyTests extends Base{
         homePageBody.confirmationText();
         String actualText = homePageBody.confirmationText();
         Assert.assertTrue(actualText.contains("LOOKS LIKE YOU’RE ALREADY IN OUR SYSTEM!!"));
-    }
-
-// Test Case M10:
-    @Test
-    void testJoinStarRewards() throws InterruptedException {
-        closeCookiesNotice();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,6250)");
-        cookies();
-        sleep(10000);
-        Actions mouse = new Actions(driver);
-        mouse.moveToElement(driver.findElement(By.xpath("//*[@id=\"rowP-157727\"]/div/map/area[2]")));
-        driver.findElement(By.xpath("//*[@id=\"rowP-157727\"]/div/map/area[2]")).click();
 
     }
 

@@ -3,23 +3,25 @@ package MacysPages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
-public class HomePageHeader {
 
+public class HomePageHeader {
 
     @FindBy(xpath = "//*[@id='myRewardsLabel-status']")
     WebElement SignInButton;
 
-// Click Sign In button
+    // Click Sign In button
     public void SignInButtonClicking() {
 
-       SignInButton.click();
+        SignInButton.click();
     }
+
     @FindBy(xpath = "//*[@id='pm-desktop-subheading']")
     WebElement signInTXT;
 
-public String signInText(){
+    public String signInText() {
         return signInTXT.getText();
     }
+
     @FindBy(css = "[id='email']")
     WebElement signInEmail;
 
@@ -162,9 +164,10 @@ public String signInText(){
 
     // Check rewards box
 
-    public void checkRewardBox(){
+    public void checkRewardBox() {
         checkBox.click();
     }
+
     //Create Account
     @FindBy(css = "[class='primary expanded submit']")
     WebElement createAccount;
@@ -181,79 +184,89 @@ public String signInText(){
 
     }
 
-    @FindBy (css = "[id='globalSearchInputField']")
+    @FindBy(css = "[id='globalSearchInputField']")
     WebElement ProductSearchBar;
 
-    public void clickProductSearchBar(){
+    public void clickProductSearchBar() {
+
         ProductSearchBar.click();
     }
 
 
-    public void selectaProductInSearchBar(String ProductName){
+    public void selectaProductInSearchBar(String ProductName) {
         ProductSearchBar.sendKeys(ProductName);
     }
 
-    @FindBy (css = "[id='searchSubmit']")
-        WebElement SearchButton;
-    public void clickSearchButton(){
+    @FindBy(css = "[id='searchSubmit']")
+    WebElement SearchButton;
+
+    public void clickSearchButton() {
         SearchButton.click();
     }
 
-    @FindBy (xpath = "//*[@id=\"5870915\"]/div[2]/div/a")
+    @FindBy(xpath = "//*[@id=\"5870915\"]/div[2]/div/a")
     WebElement AcquaDiGioAbsolu;
+
     public void selectAcquaDiGioAbsolu() {
         AcquaDiGioAbsolu.click();
     }
 
-    @FindBy (css = "[data-auto='increment-button']")
-            WebElement updateQuantity;
+    @FindBy(css = "[data-auto='increment-button']")
+    WebElement updateQuantity;
 
-            public void updateCartQuantity(){
-            updateQuantity.click();
-            }
+    public void updateCartQuantity() {
+        updateQuantity.click();
+    }
 
 
     @FindBy(css = "[data-action='change-zipcode']")
-  WebElement clickZipcode;
-  public void clickToChangeZipCode(){
+    WebElement clickZipcode;
 
-      clickZipcode.click();
-}
+    public void clickToChangeZipCode() {
+
+        clickZipcode.click();
+    }
 
     @FindBy(css = "[placeholder='Enter ZIP Code']")
     WebElement clearZipcode;
-    public void clickClearZipcode(){
+
+    public void clickClearZipcode() {
         clearZipcode.clear();
     }
+
     @FindBy(css = "[placeholder='Enter ZIP Code']")
     WebElement newZipcode;
+
     public void enterNewZipcode() {
-        newZipcode.sendKeys( "02149");
+        newZipcode.sendKeys("02149");
     }
 
     @FindBy(css = "[class='button secondary small submit-sdd-zip-code']")
     WebElement updateNewZipCode;
-    public void clickToApplyZipCode(){
+
+    public void clickToApplyZipCode() {
 
         updateNewZipCode.click();
     }
 
     @FindBy(css = "[data-auto='add-to-bag']")
     WebElement addToBag;
-    public void clickAddToBag(){
+
+    public void clickAddToBag() {
         addToBag.click();
     }
 
-    @FindBy (css = "[class='notification-body']")////*[@id="cta-notification-order-panel-139768"]/div/div/div[2]/div/p
+    @FindBy(css = "[class='notification-body']")////*[@id="cta-notification-order-panel-139768"]/div/div/div[2]/div/p
     WebElement notificationMSG;
-    public String printNotification(){
+
+    public String printNotification() {
         return notificationMSG.getText();
     }
 
     @FindBy(xpath = "//*[@id='logo']")
     WebElement MacysLogo;
 
-    public boolean MacysHeaderLogo(){
+    public boolean MacysHeaderLogo() {
         return MacysLogo.isDisplayed();
     }
 
@@ -261,14 +274,118 @@ public String signInText(){
     @FindBy(id = "img_202534")
     WebElement CBK200Breakmaker;
 
-    public void selectCBK200Breakmaker(){
+    public void selectCBK200Breakmaker() {
         CBK200Breakmaker.click();
     }
 
     @FindBy(id = "img_139768")
     WebElement DCC450_4_CupCoffeeMaker;
-            public void selectDCC450_4_CupCoffeeMaker(){
-                DCC450_4_CupCoffeeMaker.click();
-            }
 
+    public void selectDCC450_4_CupCoffeeMaker() {
+
+        DCC450_4_CupCoffeeMaker.click();
+    }
+
+
+    @FindBy(xpath = "//*[@title='Stores']")
+    WebElement stores;
+
+    public void clickStore() {
+
+        stores.click();
+
+    }
+
+    @FindBy(id = "q")
+    WebElement searchField;
+
+    public void clickSearchField() {
+        searchField.sendKeys("45069");
+
+    }
+
+    @FindBy(css = "[class='search-button Locator-bigButton Button-primary']")
+    WebElement searchBtn;
+
+    public void clickSearchBtn() {
+
+        searchBtn.click();
+    }
+
+    @FindBy(xpath = "//*[@id='js-yl-693346']/article/h3/a/span/span[2]")
+    WebElement KenwoodStore;
+
+
+    public void selectKenwoodStore() {
+        KenwoodStore.click();
+    }
+
+    @FindBy(id = "dropdown-button")
+    WebElement jumpToaCategoryBtn;
+
+    public void clickJumpToaCategoryBtn() {
+        jumpToaCategoryBtn.click();
+    }
+
+    @FindBy(xpath = "//*[@id='mainCont']/div[2]/div[2]/div[1]/div/div[2]/div/div[2]/div/div[2]/div[6]/div/div/div/form/div[2]/div[1]/label/a")
+    WebElement findPickUpStore;
+
+    public void clickFindPickUpStore() {
+        findPickUpStore.click();
+    }
+
+    @FindBy(css = "[name='address']")
+    WebElement pickUpZipCode;
+
+    public void clickPickUpZipCode() {
+        pickUpZipCode.sendKeys("45069");
+
+    }
+
+    @FindBy(id = "loader5")
+    WebElement searchZipCode;
+
+    public void clickSearchZipCodeBtn() {
+
+        searchZipCode.click();
+    }
+
+    @FindBy(xpath = "//*[@id='bopsStore[5259]']")
+    WebElement localStore;
+
+    public void clickLocalStore() {
+
+        localStore.click();
+    }
+
+    public void EnterProductWebIdInSearchBar(String WebID) {
+        ProductSearchBar.sendKeys(WebID);
+
+    }
+
+    @FindBy(css = "[title='shopping bag']")
+    WebElement shoppingBag;
+
+    public boolean ShoppingBagLogoVisibility() {
+        return shoppingBag.isDisplayed();
+    }
+
+    @FindBy(css = "[title='Sign Up']")
+    WebElement emailSignUpLink;
+
+    public void clickEmailSignUpLink() {
+        emailSignUpLink.click();
+    }
+
+    public void SearchAProductCategoryInSearchBar(String productCategory) {
+        ProductSearchBar.sendKeys(productCategory);
+
+    }
+    @FindBy(xpath = "//*[@id=\"resultsFoundMessage\"]")
+    WebElement shoes;
+
+    public String SearchResults() {
+
+        return shoes.getText();
+    }
 }

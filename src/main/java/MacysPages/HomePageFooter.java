@@ -26,4 +26,18 @@ public void clickAppStore(){
     appStore.click();
 
 }
+
+@FindBy(xpath = "//*[@id='social-icons-list']/li[5]/a/span")
+    WebElement YoutubeChannel;
+
+public void clickYoutubeChannel(){
+    YoutubeChannel.click();
+}
+
+@FindBy(xpath = "//*[@id='footer-redesign-row-1-panels-container']/div[1]/label/ul/li[7]/a")
+    WebElement contactUs;
+
+public  WebElement contactUsLink(){
+    return contactUs;
+}
 }

@@ -17,23 +17,52 @@ public class Base {
 
     public WebDriver driver;
 
-    void setup(String browser) {
-        if (browser.equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-            driver = new ChromeDriver();
-        } else if (browser.equalsIgnoreCase("firefox")) {
-            System.setProperty("webdriver.gecko.driver", "resources/geckodriver.exe");
-            driver = new FirefoxDriver();
-        } else if (browser.equalsIgnoreCase("edge")) {
-            System.setProperty("webdriver.edge.driver", "resources/Edge");
-            driver = new EdgeDriver();
-        } else {
-            browser.equalsIgnoreCase("explorer");
-            System.setProperty("webdriver.ie.driver", "resources/IEDriverServer.exe");
-            driver = new InternetExplorerDriver();
+//    void setup(String browser) {
+//        if (browser.equalsIgnoreCase("chrome")) {
+//            System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+//            driver = new ChromeDriver();
+//        } else if (browser.equalsIgnoreCase("firefox")) {
+//            System.setProperty("webdriver.gecko.driver", "resources/geckodriver.exe");
+//            driver = new FirefoxDriver();
+//        } else if (browser.equalsIgnoreCase("edge")) {
+//            System.setProperty("webdriver.edge.driver", "resources/Edge");
+//            driver = new EdgeDriver();
+//        } else {
+//            browser.equalsIgnoreCase("explorer");
+//            System.setProperty("webdriver.ie.driver", "resources/IEDriverServer.exe");
+//            driver = new InternetExplorerDriver();
+//        }
+//        driver.manage().window().maximize();
+    //}
+    void setup(){
+
+        String browser = "chrome";
+
+        switch (browser){
+
+                case "edge":
+                System.setProperty("webdriver.edge.driver", "resources/Edge");
+                driver = new EdgeDriver();
+                break;
+
+                case "chrome":
+                System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+                driver = new ChromeDriver();
+                break;
+
+                case "explorer":
+                System.setProperty("webdriver.ie.driver", "resources/IEDriverServer.exe");
+                driver = new InternetExplorerDriver();
+                break;
+
+                case "firefox":
+                System.setProperty("webdriver.gecko.driver", "resources/geckodriver.exe");
+                driver = new FirefoxDriver();
+                break;
         }
-        driver.manage().window().maximize();
     }
+
+
     public void screenshot(String word) throws IOException {
 
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
