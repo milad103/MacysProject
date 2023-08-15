@@ -48,7 +48,7 @@ public class MacysHomePageBodyTests extends Base{
         homePageBody.clickYearDD();
         implicitWait(10);
        homePageBody.clickCheckBox();
-        sleep(5000);
+        sleep(6000);
         homePageBody.clickSubmitBttn();
         // Assertion
         homePageBody.confirmationText();
