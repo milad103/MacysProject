@@ -1,12 +1,14 @@
 package MacysTests;
 
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.testng.annotations.AfterMethod;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -19,26 +21,23 @@ public class Base {
 
     void setup(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "src/main/driverz/chromedriver.exe");
             driver = new ChromeDriver();
         } else if (browser.equalsIgnoreCase("firefox")) {
-            System.setProperty("webdriver.gecko.driver", "resources/geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", "src/main/driverz/geckodriver.exe");
             driver = new FirefoxDriver();
-        } else if (browser.equalsIgnoreCase("edge")) {
-            System.setProperty("webdriver.edge.driver", "resources/Edge");
+        } else { browser.equalsIgnoreCase("edge");
+            System.setProperty("webdriver.edge.driver", "src/main/driverz/msedgedriver.exe");
             driver = new EdgeDriver();
-        } else {
-            browser.equalsIgnoreCase("explorer");
-            System.setProperty("webdriver.ie.driver", "resources/IEDriverServer.exe");
-            driver = new InternetExplorerDriver();
         }
+
         driver.manage().window().maximize();
     }
     public void screenshot(String word) throws IOException {
 
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
-        FileUtils.copyFile(scrFile, new File("./Screenshots.png"));
+        FileUtils.copyFile(scrFile, new File("src/main/screenshots"));
     }
 
 

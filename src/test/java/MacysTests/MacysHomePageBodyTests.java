@@ -1,5 +1,8 @@
 package MacysTests;
 
+
+import MacysPages.HomePageBody;
+import MacysPages.HomePageFooter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
@@ -7,21 +10,20 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import MacysPages.HomePageBody;
-
-import java.io.IOException;
 
 public class MacysHomePageBodyTests extends Base{
 
     HomePageBody homePageBody;
-    String URL = "https://macys.com";
+    //HomePageFooter homePageFooter;
+   String URL = "https://macys.com";
 
 
     @BeforeMethod
-    void setupHomePage() throws IOException {
-        setup("explorer");
+    void setupHomePage() {
+        setup("chrome");
         driver.get(URL);
         homePageBody = PageFactory.initElements(driver, HomePageBody.class);
+        //homePageFooter = PageFactory.initElements(driver, HomePageFooter.class);
 
     }
 

@@ -55,6 +55,7 @@ public String signInText(){
     WebElement SignInText;
 
     public String getSignInText() {
+
         return SignInText.getText();
     }
 
