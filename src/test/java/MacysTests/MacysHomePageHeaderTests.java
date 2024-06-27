@@ -25,7 +25,7 @@ public class MacysHomePageHeaderTests extends Base {
 
     @BeforeMethod
     void setupHomePage() throws IOException {
-        setup();
+        setup("Chrome");
         driver.get(URL);
 
 
